@@ -1,11 +1,103 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from "../components/Badge.astro";
+import Contact from "../components/Contact.astro";
+import Education from "../components/Education.astro";
+import Experience from "../components/Experience.astro";
+import Footer from "../components/Footer.astro";
+import Habilidades from "../components/Habilidades.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import ContactIcon from "../components/icons/Phone.astro";
+import SchoolIcon from "../components/icons/School.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Portafolio de Mauri Pino Ricci - Desarrollador y Programador Web"
+  description="Contrata a Mauri Pino Ricci, un desarrollador web full stack con experiencia en crear aplicaciones únicas. Especializado en tecnologías modernas y con un enfoque en la calidad del código."
+>
+  <main class="px-4">
+    <SectionContainer id="inicio" class="py-34 pb-20">
+      <div
+        class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:items-center"
+      >
+        <img
+          class="rounded-full w-42 h-42 object-cover object-center"
+          style="object-position: 50% 30%;"
+          src="/src/assets/image.png"
+          alt="camilavitale photo"
+        />
+        <h1
+          class="text-white text-2xl md:text-4xl lg:text-5xl font-bold text-center pb-4 flex justify-center items-center gap-3 flex-wrap cursor-default hover:text-green-900"
+        >
+          <span class="flex items-center gap-4 ml-5">
+            <span class="transition-colors duration-300 cursor-default">
+              Camila Vitale
+            </span>
+            <!-- <a
+              href="https://www.linkedin.com/in/mauripinoricci/"
+              target="_blank"
+              class="flex items-center"
+            >
+              <Badge>Disponible para trabajar </Badge>
+            </a> -->
+          </span>
+        </h1>
+      </div>
+      <h2 class="text-xl md:text-2xl lg:text-2xl text-center mt-15 max-w-175">
+        <span class="text-[rgba(250,245,235,0.9)] cursor-default"
+          >Licenciada en Fonoaudiología y Terapia del Lenguaje</span
+        >
+      </h2>
+
+      <nav class="flex justify-center py-6 gap-4 flex-wrap">
+        <SocialPill href="https://linkedin.com/in/mauripinoricci/">
+          <LinkedInIcon class="size-6" />
+          LinkedIn
+        </SocialPill>
+
+        <SocialPill href="mailto:camilavitale@gmail.com">
+          <MailIcon class="size-6" />
+          camilavitale@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-6" />
+        Experiencia Profesional
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="educacion">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <SchoolIcon class="size-6" />
+        Educación
+      </h2>
+      <Education />
+    </SectionContainer>
+
+    <SectionContainer id="habilidades">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <SchoolIcon class="size-6" />
+        Habilidades
+      </h2>
+      <Habilidades />
+    </SectionContainer>
+
+    <SectionContainer id="contacto">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <ContactIcon class="size-5" />
+        Contacto
+      </h2>
+      <Contact />
+    </SectionContainer>
+
+    <Footer />
+  </main>
 </Layout>

@@ -1,0 +1,48 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    title: "Practicas Supervisadas - Lenguaje Infantil",
+    date: "de 2° a 4° año de la carrera",
+    description:
+      "Evalucacion y tratamiento de niños con trastornos del lenguaje, utilizando técnicas de intervención basadas en evidencia para mejorar sus habilidades comunicativas.",
+    items: [
+      "Evaluación integral del lenguaje y audición",
+      "Tratamiento de niños con trastornos del desarrollo del habla",
+      "Intervención en patologías fonoaudiológicas"
+    ],
+  },
+  {
+    title: "Desarrollo de Software - Aplicación “Vicnasol App”",
+    date: "septiembre 2024 - diciembre 2024",
+    description:
+      "Sistema de gestión y contratación de Jardineros, utilizando React, Next, Nest, TypeScript, entre otras tecnologías.",
+    link: " https://youtu.be/lQ5TG9P7c88",
+  },
+  {
+    title: "Proyecto Ecommerce",
+    date: "julio 2024 - septiembre 2024",
+    description:
+      "El proyecto consiste en desarrollar un sistema de gestión de turnos para clases de inglés. Los usuarios se registran en la plataforma para poder solicitar turnos y asistir a las clases. El sistema permite a los usuarios crear una cuenta, gestionar su perfil y reservar turnos según la disponibilidad de los instructores. Además, ofrece la posibilidad de ver los turnos disponibles, confirmar reservas y gestionar citas de manera eficiente.",
+    link: "https://github.com/MauriPinoRicci/proyectoEcommerce",
+  },
+  {
+    title: "Proyecto Cine",
+    date: "mayo 2024 - julio 2024",
+    description:
+      "El proyecto consta de simular una página web basada en un cine, donde se puede ver las peliculas disponibles y agregar o eliminar las mismas.",
+    link: "https://github.com/MauriPinoRicci/proyectoCine",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 opacity-90">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-6 ">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

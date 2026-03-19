@@ -1,0 +1,114 @@
+---
+import BriefcaseIcon from "./icons/Briefcase.astro";
+import CssIcon from "./icons/Css.astro";
+import HtmlIcon from "./icons/Html.astro";
+import JavaIcon from "./icons/Java.astro";
+import JavascriptIcon from "./icons/Javascript.astro";
+import NestjsIcon from "./icons/Nestjs.astro";
+import NextjsIcon from "./icons/Nextjs.astro";
+import PostgresIcon from "./icons/Postgres.astro";
+import TypescriptIcon from "./icons/Typescript.astro";
+
+const TAGS = {
+  NEXT: { name: "Next.js", class: "bg-gray-500 text-white", icon: NextjsIcon },
+  HTML: { name: "HTML", class: "bg-red-500 text-white", icon: HtmlIcon },
+  CSS: { name: "CSS", class: "bg-blue-500 text-white", icon: CssIcon },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-yellow-500 text-white",
+    icon: JavascriptIcon,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#336791] text-white",
+    icon: PostgresIcon,
+  },
+  NESTJS: { name: "NestJS", class: "bg-red-400 text-white", icon: NestjsIcon },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-blue-600 text-white",
+    icon: TypescriptIcon,
+  },
+  JAVA: { name: "Java", class: "bg-[#007396] text-white", icon: JavaIcon },
+};
+
+const EDUCATION = [
+  {
+    title: "Carrera de Desarrollo Web Full Stack - Henry",
+    description:
+      "Programa intensivo de desarrollo web full stack que abarca desde fundamentos de programación hasta tecnologías avanzadas como React, Node.js y bases de datos.",
+    image: "/education/henryfs.webp",
+    file: "/archives/CertificadoHenry.pdf",
+    tags: [
+      TAGS.NEXT,
+      TAGS.NESTJS,
+      TAGS.POSTGRESQL,
+      TAGS.TYPESCRIPT,
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.JAVASCRIPT,
+    ],
+  },
+  {
+    title: "Curso Aprender a Programar - UTN",
+    description:
+      "Curso introductorio de programación que cubre conceptos básicos, lógica de programación y fundamentos de algoritmos en Java.",
+    image: "/education/utn.webp",
+    file: "/archives/CertificadoUTN.pdf",
+    tags: [TAGS.JAVA],
+  },
+  {
+    title: "Curso Programación desde Cero - Egg Cooperation",
+    description:
+      "Curso para principiantes que enseña los conceptos básicos de la programación, incluyendo variables, estructuras de control y funciones.",
+    image: "/education/egg.webp",
+    file: "/archives/CertificadoPDC.pdf",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+  {
+    title: "Curso #SéProgramar",
+    description:
+      "Curso para aprender a programar desde cero. Incluye fundamentos de programación, estructuras de datos y algoritmos.",
+    image: "/education/seprogramar.webp",
+    file: "/archives/CertificadoSeprogramar.pdf",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+];
+---
+
+{
+  EDUCATION.map(({ title, description, image, tags, file }) => (
+    <div class="opacity-90 py-1.5 px-2 flex flex-col gap-4 pb-10">
+      <article>
+        <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
+          <div class="flex-shrink-0">
+            <BriefcaseIcon class="size-4" />
+          </div>
+          <span class="flex-1">{title}</span>
+        </h3>
+        <p class="text-lg mb-4 text-pretty opacity-85">{description}</p>
+        <ul class="flex flex-wrap gap-2 flex-row mb-2 sm:flex-row sm:gap-2 xs:flex-col xs:gap-2">
+          {tags.map((tag) => (
+            <li class="flex items-center gap-2 py-2">
+              <span
+                class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-2 px-2`}
+              >
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <tag.icon class="w-4 h-4" />
+                </div>
+                <span class="flex-1">{tag.name}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <a href={file} download class="inline-block">
+          <img
+            class="rounded shadow-xl shadow-blue-900 opacity-80 w-60 h-auto"
+            src={image}
+            alt={`Certificado de ${title}`}
+          />
+        </a>
+      </article>
+    </div>
+  ))
+}
